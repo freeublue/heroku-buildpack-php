@@ -3,7 +3,7 @@ session_start();
 include "generategeo.php";
 $foo = $_SERVER[SERVER_NAME];
 
-if($foo === 'testapplbm.herokuapp.com') { 
+if($foo === 'laundrybymagic.herokuapp.com') { 
 ?>
 <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
 <style>
