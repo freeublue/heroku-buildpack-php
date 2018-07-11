@@ -1,0 +1,10 @@
+PRIMARY KEY(or_id),
+or_clientid VARCHAR(255),
+or_num VARCHAR(255),
+or_servicetype VARCHAR(255),
+or_quantity VARCHAR(255),
+or_price VARCHAR(255),
+or_status VARCHAR(255),
+or_fo VARCHAR(255),
+or_contractorid1 VARCHAR(255),
+or_contractorid2
