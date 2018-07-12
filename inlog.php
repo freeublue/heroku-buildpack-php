@@ -2,7 +2,7 @@
 session_start();
 $foo = $_SERVER[SERVER_NAME];
 
-if($foo === '127.0.0.1') { 
+if($foo === 'laundrybymagic.herokuapp.com') { 
 $mobile = $_POST[mobile];
 $pass = $_POST[password];
 
