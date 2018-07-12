@@ -115,97 +115,113 @@ var lon = "<?php echo $lon;?>";
 </script>
 <center>
 <script src="../geoff.js"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8iLOdr3AXEf8PcwCbnSUq48e0jrEMbKc"
-            type="text/javascript"></script>
-    <script type="text/javascript">
-    //<![CDATA[
 
-    var customIcons = {
-      driver: {
-        icon: 'http://labs.google.com/ridefinder/images/mm_20_blue.png'
-      },
-      Laundry: {
-        icon: 'http://labs.google.com/ridefinder/images/mm_20_red.png'
-      }
-    };
+<link rel="stylesheet" type="text/css" href="https://js.cit.api.here.com/v3/3.0/mapsjs-ui.css?dp-version=1526040296" />
+<script type="text/javascript" src="https://js.cit.api.here.com/v3/3.0/mapsjs-core.js"></script><script src="geoff.js"></script><script type="text/javascript" src="https://js.cit.api.here.com/v3/3.0/mapsjs-service.js"></script>
+<script type="text/javascript" src="https://js.cit.api.here.com/v3/3.0/mapsjs-ui.js"></script>
+<script type="text/javascript" src="https://js.cit.api.here.com/v3/3.0/mapsjs-mapevents.js"></script>
 
+  <div id="map" style="width: 100%; height: 600px; background: grey" />
+  <script  type="text/javascript" charset="UTF-8" >
+    
+/**
+ * Creates a new marker and adds it to a group
+ * @param {H.map.Group} group       The group holding the new marker
+ * @param {H.geo.Point} coordinate  The location of the marker
+ * @param {String} html             Data associated with the marker
+ */
+function addMarkerToGroup(group, coordinate, html) {
+  var marker = new H.map.Marker(coordinate);
+  // add custom data to the marker
+  marker.setData(html);
+  group.addObject(marker);
+}
 
+/**
+ * Add two markers showing the position of Liverpool and Manchester City football clubs.
+ * Clicking on a marker opens an infobubble which holds HTML content related to the marker.
+ * @param  {H.Map} map      A HERE Map instance within the application
+ */
+function addInfoBubble(map) {
+  var group = new H.map.Group();
 
+  map.addObject(group);
 
-    function load() {
-      var map = new google.maps.Map(document.getElementById("map"), {
-        center: new google.maps.LatLng(lat, lon),
-        zoom: 14,
-        mapTypeId: 'roadmap'
-      });
-      var infoWindow = new google.maps.InfoWindow;
-
-      // Change this depending on the name of your PHP file
-      downloadUrl("geomarker.xml", function(data) {
-        var xml = data.responseXML;
-var natt = att.split('|');
+  // add 'tap' event listener, that opens info bubble, to the group
+  group.addEventListener('tap', function (evt) {
+    // event target is the marker itself, group is a parent event target
+    // for all objects that it contains
+    var bubble =  new H.ui.InfoBubble(evt.target.getPosition(), {
+      // read custom data
+      content: evt.target.getData()
+    });
+    // show info bubble
+    ui.addBubble(bubble);
+  }, false);
+  var natt = att.split('|');
         
         for (i in natt) {
 var markers = natt[i].split(',');
-       var name = markers[0];
+          var name = markers[0];
           
           var type = markers[4];
           var link = markers[3];
           
           var servicesoffered = markers[5];
+          var la = parseFloat(markers[1]);
+          var ln = parseFloat(markers[2]);
           
+          var rating = markers[6]; 
           
-          var rating = markers[6];
+  addMarkerToGroup(group, {lat: la, lng: ln},
+    "<div><a href=\'"+link+"\' >"+name+" </a>" +
+    "</div><div>"+type+ln+"<br>Serivce "+servicesoffered+la+"</div>");
+ } 
 
-          var point = new google.maps.LatLng(
-              parseFloat(markers[1]),
-              parseFloat(markers[2]));
-          var html = "<table><tr><td><h4>" + name + "</h4></td></tr><tr><td>" + servicesoffered + "</td></tr><tr><td>Stars" + rating + "</td></tr><td><td><a href='" + link + "'class=\"buttonsmall\" />Book a Wash</a></td></tr></table>";
-          var icon = customIcons[type] || {};
-          var marker = new google.maps.Marker({
-            map: map,
-            position: point,
-            icon: icon.icon
-          });
-          bindInfoWindow(marker, map, infoWindow, html);
-        }
-      });
-    }
 
-    function bindInfoWindow(marker, map, infoWindow, html) {
-      google.maps.event.addListener(marker, 'click', function() {
-        infoWindow.setContent(html);
-        infoWindow.open(map, marker);
-      });
-    }
 
-    function downloadUrl(url, callback) {
-      var request = window.ActiveXObject ?
-          new ActiveXObject('Microsoft.XMLHTTP') :
-          new XMLHttpRequest;
+}
 
-      request.onreadystatechange = function() {
-        if (request.readyState == 4) {
-          request.onreadystatechange = doNothing;
-          callback(request, request.status);
-        }
-      };
 
-      request.open('GET', url, true);
-      request.send(null);
-    }
 
-    function doNothing() {}
+/**
+ * Boilerplate map initialization code starts below:
+ */
 
-    //]]>
+// initialize communication with the platform
+var platform = new H.service.Platform({
+  app_id: 'I9Y4iDApiDnRYg4Bcfyx',
+  app_code: '8DVGvwPLV6UgKJWVU5-p3A',
+  useCIT: true,
+  useHTTPS: true
+});
+var pixelRatio = window.devicePixelRatio || 1;
+var defaultLayers = platform.createDefaultLayers({
+  tileSize: pixelRatio === 1 ? 256 : 512,
+  ppi: pixelRatio === 1 ? undefined : 320
+});
 
+// initialize a map - this map is centered over Europe
+var map = new H.Map(document.getElementById('map'),
+  defaultLayers.normal.map,{
+  center: {lat: lat, lng: lng},
+  zoom: 14,
+  pixelRatio: pixelRatio
+});
+
+// MapEvents enables the event system
+// Behavior implements default interactions for pan/zoom (also on mobile touch environments)
+var behavior = new H.mapevents.Behavior(new H.mapevents.MapEvents(map));
+
+// create default UI with layers provided by the platform
+var ui = H.ui.UI.createDefault(map, defaultLayers);
+
+// Now use the map as required...
+addInfoBubble(map);
   </script>
 
-  </head>
-
-  <body onload="load()">
-    <div id="map" style="width: 800px; height: 500px"></div>
     <?
+    echo "</center><hr><br />";
     include "../config.php";
     
 
