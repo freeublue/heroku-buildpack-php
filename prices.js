@@ -1,0 +1,1 @@
+var prices="Wash,14|Wash_Fold,16|Wash_Fold_Iron,24|Hand_Wash_Hang_Dry_Fold,18|Stain_Removal_per_Item,20";
