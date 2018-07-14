@@ -1,4 +1,5 @@
 <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+<script src='../jquery-1.11.1.min.js'></script>
 <style>
 @import "https://fonts.googleapis.com/css?family=Raleway:100,300,600";
 
@@ -9,6 +10,10 @@ body, input, select, textarea {
 		font-size: 13pt;
 		font-weight: 300;
 		line-height: 1.65;} 
+		
+#su{display:none;}
+#rr{display:block;}
+
 th{
 padding:5px;
 font-family: Arial Rounded MT Bold,Helvetica Rounded,Arial,sans-serif; 
@@ -101,10 +106,10 @@ font-family: "Raleway", Arial, Helvetica, sans-serif;}</style>
 <a class='logo' href="../offer.php">Offer</a></div>
 <div class='ppfull'><center><div class='header'>View Contractors<br />See if we have service in your area.</div><p>Click the view contractors button after location agreement, <br />then click view after your location has appeared in co-ordinates.</p></div></center>
 <center>
-<div id='demo'>Co-ordinates</div>
+<div id='demo'>Co-ordinates By Location</div>
 <button onclick='getLocation();'>View Available Contractors in your area</button>
 <form action='availp.php' name='myform' method='post'><input type='text' value='' name='lat' /><input type='text' value='' name='lon' />
-<input type='submit' name='submit' value='View' /></form>
+<input type='submit' name='submit' value='View' /></form><p><h2>Or</h2><h4>View By Address</h4></p><p>EG: 2 mystreet rd Suburb Town Postalcode</p><form action='loadmap.php' method='post' name='pform'><input type='text' name='ginput' id='ginput' placeholder='streetname suburb town postalcode' /><input type='hidden' name='lat' /><input type='hidden' name='lng' /><input style='background:gray;height:40px;color:white;text-align:center;padding:20px;width:200px;border-radius:15%;' id='su' type='submit' name='submit' value='View Services' /></form><div style='background:gray;height:10px;color:white;text-align:center;padding:20px;width:200px;border-radius:15%;' id='rr' onclick='geo();'>Click</div><div id='qd'></div><div id='zd'></div>
 
 </center><center><div class='image12'><img src='laundry.jpg' /></div></center>
 </body>
@@ -124,3 +129,42 @@ myform.lat.value = position.coords.latitude;
 myform.lon.value = position.coords.longitude;
 }
 </script>
+<script> 
+ function geo() {                   
+$.ajax({
+  url: 'https://geocoder.cit.api.here.com/6.2/geocode.json',
+  type: 'GET',
+  dataType: 'jsonp',
+  jsonp: 'jsoncallback',
+  data: {
+    searchtext: document.pform.ginput.value,
+    app_id: 'I9Y4iDApiDnRYg4Bcfyx',
+    app_code: '8DVGvwPLV6UgKJWVU5-p3A',
+    gen: '8'
+  },
+  success: function (data) {
+    
+    
+    var str = JSON.stringify(data);
+    
+
+    var st = str.indexOf("DisplayPosition")+19;
+    var ed = str.indexOf("NavigationPosition")-3;
+    var newd = str.substring(st,ed);
+    
+    var vf = newd.split(',');
+        document.pform.lat.value = vf[0].substring(10,vf[0].length);
+    document.pform.lng.value = vf[1].substring(12,vf[1].length);
+    lax = vf[0].substring(10,vf[0].length);
+    lnx = vf[1].substring(12,vf[1].length);
+    document.getElementById("su").style.display = "block";
+        document.getElementById("rr").style.display = "none";
+
+
+
+
+    
+  }
+}); } 
+</script>
+
