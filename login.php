@@ -53,6 +53,9 @@ if (xc==null || xc=="")
   </head>
 
   <body>
+  <?
+  include "nav1.php";
+  ?>
 
     <div class="container">
 
