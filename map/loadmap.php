@@ -69,7 +69,23 @@ var markers = natt[i].split(',');
 
 
 
+} 
+function addCircleToMap(map){
+  map.addObject(new H.map.Circle(
+    // The central point of the circle
+    {lat: lat, lng: lon},
+    // The radius of the circle in meters
+    5000,
+    {
+      style: {
+        strokeColor: 'rgba(55, 85, 170, 0.6)', // Color of the perimeter
+        lineWidth: 2,
+        fillColor: 'rgba(0, 128, 0, 0.7)'  // Color of the circle
+      }
+    }
+  ));
 }
+
 
 
 
@@ -94,7 +110,7 @@ var defaultLayers = platform.createDefaultLayers({
 var map = new H.Map(document.getElementById('map'),
   defaultLayers.normal.map,{
   center: {lat: lat, lng: lon},
-  zoom: 16,
+  zoom: 13,
   pixelRatio: pixelRatio
 });
 
@@ -107,6 +123,7 @@ var ui = H.ui.UI.createDefault(map, defaultLayers);
 
 // Now use the map as required...
 addInfoBubble(map);
+addCircleToMap(map);
   </script>
 
     
