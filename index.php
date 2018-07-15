@@ -1,1 +1,1 @@
-<p><h1>This site is under construction. We are hard at work testing all aspects to bring you the most innovative conscept yet!</h1></p><img src='banner.jpg' />
+<p><h1>This site is under construction. We are hard at work testing all aspects to bring you the most innovative idea yet!</h1></p><img src='banner.jpg' />
