@@ -2,7 +2,7 @@
 session_start();
 $foo = $_SERVER[SERVER_NAME];
 
-if($foo === '127.0.0.1') { 
+if($foo === 'laundrybymagic.herokuapp.com') { 
 include "nav1.php";
 $customer = $_SESSION[customer];
 if(isset($_SESSION[customer]) ) { 
