@@ -34,21 +34,15 @@ echo "<div class='ppfull'><center><div class='header'>Client $fname<br />Details
 
 <li><a class='buttonsmallx' href='logout.php'>Logout</a></li>
 </ul></div><div class='pp55'><div class='header1'>Order Details</div><p>";
-$sql = "SELECT * FROM orders WHERE or_clientid = '$id' AND or_status = '1'";
+$sql = "SELECT * FROM orders WHERE or_clientid = '$id' AND or_status = '3'";
          $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) > 0) {
             while($row = mysqli_fetch_assoc($result)) { 
-            $ornum = $row[or_num];
+            $ornum[] = $row[or_num];
             $tot[] = $row[or_quantity] * $row[or_price];
-            echo "<b>Clientid </b> $row[or_clientid]<br />";
-            echo "<b>Order number </b> $row[or_num]<br />";
-            echo "<b>Date </b> $row[or_date]<br />";
-            echo "<b>Time </b> $row[or_clientid]<br />";
-            echo "<b>Service Type </b> $row[or_servicetype]<br />";
-            echo "<b>Quantity </b> $row[or_quantity]<br />";
-            echo "<b>Price </b> $row[or_price]<br />";
-            echo "<b>Status </b> $row[or_status]<br />";
-            echo "<hr>";
+            
+            
+            
             
             
              
@@ -57,8 +51,10 @@ if (mysqli_num_rows($result) > 0) {
                
                
                } } 
-               $total = (array_sum($tot)) + 90;
-               echo "<h4>Total</h4>$total";
+               $newarray = array_unique($ornum);
+               foreach($newarray as $na) { 
+               echo "<a href='viewpayment.php?ordnum=$na'>View payment details</a><br />";
+            echo "<hr>"; } 
 echo "</p></div>
 <div class='image12'><center><img  src='images/pic01.jpg' /></center></div></center>
 </body>"; } 

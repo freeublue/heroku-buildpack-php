@@ -2,7 +2,7 @@
 session_start();
 $foo = $_SERVER[SERVER_NAME];
 
-if($foo === 'laundrybymagic.herokuapp.com') { 
+if($foo === '127.0.0.1') { 
 include "nav1.php";
 $customer = $_SESSION[customer];
 if(isset($_SESSION[customer]) ) { 
@@ -25,14 +25,16 @@ if (mysqli_num_rows($result) > 0) {
 
 echo "<div class='ppfull'><center><div class='header'>Client $fname<br />Details Below.</div><p>Check your order status.</p></div></center>
 <center><div class='header1'>Orders</div></center>
-<center><p></p></center><div class='pp66'><ul style='list-style:none;'><li><a class='buttonsmallx' href='ypage.php'>Dashboard</a></li>
+<center><p></p></center><div class='pp66'>
+<ul style='list-style:none;'><li><a class='buttonsmallx' href='ypage.php'>Dashboard</a></li>
 <li><a class='buttonsmallx' href='addcustomer.php'>Collection Details</a></li>
 <li><a class='buttonsmallx' href='custchangepassword.php'>Password Details</a></li>
-<li><a class='buttonsmallx' href='ord1.php'>New orders</a></li>
-<li><a class='buttonsmallx' href='ord2.php'>Orders in progress</a></li>
-<li><a class='buttonsmallx' href='ord3.php'>Completed Orders</a></li>
-
-<li><a class='buttonsmallx' href='contlogout.php'>Logout</a></li>
+<li><a class='buttonsmallx' href='ord1.php'>Confirmed orders. Not checkedout</a></li>
+<li><a class='buttonsmallx' href='ord2.php'>Checkedout unpaid</a></li>
+<li><a class='buttonsmallx' href='ord3.php'>Paid. Awaiting delivery</a></li>
+<li><a class='buttonsmallx' href='ord4.php'>Tacking on current orders</a></li>
+<li><a class='buttonsmallx' href='ord5.php'>Past orders</a></li>
+<li><a class='buttonsmallx' href='logout.php'>Logout</a></li>
 </ul></div><div class='pp55'><div class='header1'>$status</div><p><a href='map/geo5.php' class='buttonsmall'>Book A Wash</a></p></div>
 <div class='image12'><center><img  src='images/pic01.jpg' /></center></div></center>
 </body>"; } 

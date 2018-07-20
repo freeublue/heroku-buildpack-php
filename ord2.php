@@ -34,7 +34,7 @@ echo "<div class='ppfull'><center><div class='header'>Client $fname<br />Details
 
 <li><a class='buttonsmallx' href='logout.php'>Logout</a></li>
 </ul></div><div class='pp55'><div class='header1'>Order Details</div><p>";
-$sql = "SELECT * FROM orders WHERE or_clientid = '$id' AND or_status = '1'";
+$sql = "SELECT * FROM orders WHERE or_clientid = '$id' AND or_status = '2'";
          $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) > 0) {
             while($row = mysqli_fetch_assoc($result)) { 
