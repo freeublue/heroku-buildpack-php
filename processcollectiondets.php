@@ -95,11 +95,21 @@ $dsp_address_province = base64_encode(mysqli_real_escape_string($conn, $_POST['c
 $dsp_address_postalcode = base64_encode(mysqli_real_escape_string($conn, $_POST['cu_address_postalcode']));
 $dsp_phone_land = base64_encode(numm($_POST['cu_phone_land']));
 $dsp_newsletter = mysqli_real_escape_string($conn, $_POST['cu_newsletter']);
-$collection_date = $_POST[collection_date];
-$collection_time = $_POST[collection_time];
+$coldate = trim($_POST[collection_date]);
+$coltime = trim($_POST[collection_time]);
+$sr = "UPDATE orders SET collection_date = '$coldate', collection_time = '$coltime' WHERE or_num = '$ordid'";
+if (mysqli_query($conn, $sr))
+  {
+  echo "Success";
+  }
+else
+  {
+  echo "Error updating: " . mysqli_error($conn);
+  } 
 $today = date("Y-m-d H:i:s");
 $q = "UPDATE cust SET cu_fname = '$dsp_fname',  cu_lname = '$dsp_lname', cu_contact_title = '$dsp_contacttitle', cu_email = '$dsp_email', cu_address_streetnum = '$dsp_address_streetnum', cu_address_streetname = '$dsp_address_streetname', cu_address_buildingnum = '$dsp_address_buildingnum', cu_address_buildingname = '$dsp_address_buildingname', cu_address_suburb = '$dsp_address_suburb', cu_address_town = '$dsp_address_town', cu_address_province = '$dsp_address_province', cu_address_postalcode = '$dsp_address_postalcode', cu_phone_land = '$dsp_phone_land', cu_newsletter = '$dsp_newsletter', cu_dayfirst = '$today' WHERE cu_id = '$cust'";
 $result = mysqli_query($conn, $q);
+
 echo "</p><hr class='featurette-divider'><p>
           <h2 class='featurette-heading'>Order<span class='text-muted'>Check your order details.</span></h2>
           </p><p>";
@@ -107,29 +117,24 @@ echo "</p><hr class='featurette-divider'><p>
          $result = mysqli_query($conn, $sql);
 if (mysqli_num_rows($result) > 0) {
             while($row = mysqli_fetch_assoc($result)) { 
-            
+            $idd = $row[or_id];
                
                echo "Service: " . $row["or_servicetype"] . "<br>";
                echo "Order Number: " . $row["or_num"] . "<br>";
                echo "Quantity: " . $row[or_quantity] . "<br>"; 
                echo "Price: " . $row[or_price] . "<br>"; 
-               
+               echo "Collection time: " . $row[collection_time] . "<br>";
+               echo "Collection date: " . $row[collection_date] . "<br>";
                echo "Date: " . $row[or_date] . "<br>"; 
                echo "Time : " . $row[or_time] . "<br>"; 
                echo "<hr>";
-               
+
+              
                
                } } 
-               echo "<p><h4>COLLECTION DATE AND TIME</h4><b>$collection_date $collection_time</b></p>";
-               $sqr = "UPDATE orders SET collection_date = '$collection_date', collection_time = '$collection_time'";
-               if (mysqli_query($conn, $sqr))
-  {
-  echo "Order Placed and Collection Successfully Allocated";
-  }
-else
-  {
-  echo "Error creating table: " . mysqli_error($conn);
-  } 
+               echo "<p><h4>COLLECTION DATE AND TIME</h4><b>0000-00-00 $coldate <br />$coltime</b></p>";
+              
+  
                
 
 

@@ -70,15 +70,7 @@ if (mysqli_num_rows($result) > 0) {
                
                } } 
                echo "<p><h4>COLLECTION DATE AND TIME</h4><b>$collection_date $collection_time</b></p>";
-               $sqr = "UPDATE orders SET collection_date = '$collection_date', collection_time = '$collection_time'";
-               if (mysqli_query($conn, $sqr))
-  {
-  echo "Order Placed and Collection Successfully Allocated";
-  }
-else
-  {
-  echo "Error creating table: " . mysqli_error($conn);
-  }
+               
 
 
 echo "<form action='pfinal.php' method='post'><h4>Select Payment Method</h4><br /><select name='pmet'>
