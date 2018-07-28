@@ -47,6 +47,19 @@ $newval = count($nv);
 $barray = array_values($nv);
 
 
+for($r=0;$r<4;$r++) { 
+
+
+
+$ncfr = explode('|', $barray[$r]);
+
+$qu[]= $ncfr[0]; } 
+$quc = array_sum($qu);
+print_r($quc);
+echo "<br />quannt $quc<br />";
+if ($quc >= 6) { 
+
+
 for($i=0;$i<4;$i++) { 
 
 
@@ -80,7 +93,9 @@ if (mysqli_query($conn, $sdq))
   }
 else
   {
-  echo "Error Inserting table: " . mysqli_error($conn); } 
+  echo "Error Inserting table: " . mysqli_error($conn); } } else { 
+  echo "no";
+  } 
   
  } else { 
 echo "<a href='login.php'>You must be logged in to complete this process</a>"; } 
