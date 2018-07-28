@@ -3,6 +3,7 @@ session_start();
 include "generategeo.php";
 $foo = $_SERVER[SERVER_NAME];
 
+
 if($foo === 'laundrybymagic.herokuapp.com') { 
 ?>
 <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
@@ -30,7 +31,7 @@ color: navy;
 body, input, select, textarea {
 		color: #9a9a9a;
 		font-family: "Raleway", Arial, Helvetica, sans-serif;
-		font-size: 13pt;
+		font-size: 18pt;
 		font-weight: 300;
 		line-height: 1.65;} 
 
@@ -38,7 +39,7 @@ body, input, select, textarea {
 background-repeat:no-repeat;
 height:600px;
 background-image: url("banner.jpg");}
-a{text-decoration:none;}
+
 .logo{height:30px;
 float:right;
 margin:2px;
@@ -51,6 +52,7 @@ color:white;}
 height:30px;
 width:250px;
 padding:10px;
+font-size: 18pt;
 background: #5385c1;
 color:white;}
 h1{color:white;
@@ -96,7 +98,7 @@ text-align:left;
 padding:5px;
 margin:4px;}
 p{color:#5a5a5a;
-font-size:18px;
+font-size:22px;
 font-family: "Raleway", Arial, Helvetica, sans-serif;}
 .medimg1{border:#5385c1 25px solid;
 border-radius:40%;
@@ -112,13 +114,29 @@ font-size:18px;
 font-family: "Raleway", Arial, Helvetica, sans-serif;
 clear:left;
 padding:4px;
-width:300px;}
+width:300px;} 
+.subs_popup {
+padding:20px;
+color:white;
+	display: block;
+	background-color: rgba(0,0,0,0.65);
+	position: absolute;
+top: 150px;
+left:100px;
+	height: 500px;
+	width: 600px;
+z-index: 5;
+} 
+#results{display:none;
+background:gray;} 
+#close_popup{float:right;}
 </style>
 <?php
 $tin = "Door to Door Laundry Service Laundry By Magic";
 $ke = "laundry on demand, online laundry, laundry service, wash clothes, door to door laundry, get laundry, laundry, wash, iron, dry clothes, clean clothes, clean curtains, clean linen, launder linen, wash bedding, laundry service";
 $de = "laundry service to wash and iron";
 include "meta.php";
+include "slide.php";
 ?>
 <body>
 <div id='nav'><a class='logo' href="index.php">Home</a>
@@ -130,9 +148,9 @@ include "meta.php";
 <a class='logo' href="offer.php">Offer</a><br /><h1>Laundry By Magic</h1></div>
 <table cellpadding='6' width='auto'><tr><td class='pp' width='30%'valign='top'><div class='header'>BOOK A WASH.<br />Instant online calculator. No hidden price shocks. Pay online.</div><p>Our drivers collect from your door, organise cleaning then return the laundered items back to your door.</p><br /><a href="map/geo5.php" class="buttonsmall">Book</a></td>
 
-<td class='pp' valign='top'><div class='header'>GET A QUOTE.<br />Unsure about pricing? No problem get a quote instantly.</div><p>Before you make a booking let our online calculator offer you peace of mind.</p><br /><a href="quote.php" class="buttonsmall">Quote</a></td>
+<td class='pp' valign='top'><div class='header'>GET A QUOTE.<br />Unsure about pricing? No problem get a quote instantly.</div><p>Before you make a booking let our online calculator offer you quick and easy quotes.</p><br /><a href="quote.php" class="buttonsmall">Quote</a></td>
 
-<td class='pp' valign='top'><div class='header'>FAIR PRICES.<br />Equitable, transparent, pricing</div><p>Transparent pricing based on weight. Never pay more per kg</p><br /><a href="prices.php" class="buttonsmall">Prices</a></td></tr></table><table>
+<td class='pp' valign='top'><div class='header'>FAIR PRICES.<br />Equitable, transparent, pricing for peace of mind.</div><p>Transparent pricing based on weight. Never pay more per kg than quoted.</p><br /><a href="prices.php" class="buttonsmall">Prices</a></td></tr></table><table>
 
 <tr><td class='pp1' valign='top'><div class='header'>Empower people with your choice.</div></center><img class='medimg2' width='300px' src='images/pic01.jpg' /><center><div class='hh'>By entrusting us with your laundry you are empowering and employing people who might otherwise have very limited income. You are assising small business and helping the economy GROW.</div></td><td></td>
 <td class='pp1' valign='top'><div class='header'>Focus on Life not Laundry</div><img class='medimg1' width='300px' src='images/pic02.jpg' /><div class='hh'>Allow us to sort your laundry! Our low prices mean that you can focus on things that matter to you and forget about the laundry. We deliver door-to-door with a 24hr turnaround timeframe.</div></td></tr></table>
@@ -143,7 +161,25 @@ include "meta.php";
 <a href='termsofservice.php'> TandC </a></td><td>
 
 <form action='nlet.php' method='post'><b>Name</b><br /><input type='text' name='name' /><br /><b>Email</b><br /><input type='text' name='ema' /><br /><input type='submit' name='submit' value='GET IT!' /></form><br /></td></tr></table></div>
+<div class='subs_popup'><h2>Get our newsletter for special offers in your inbox</h2><div onclick='close_pu();' id='close_popup'>X</div><img src='mail.jpg' style='float:right;' height='150px'/>
+<form name='mailform'><h4>Subscribe</h4><b>Name: </b><input style='color:gray' type='text' name='nam' /><br /><b>Email: </b><input type='text' style='color:gray' name='mail' /><br /><center><div class="btn btn-default" onclick='showmail();' />SUBSCRIBE</div></center></form><div id='results'>x</div></div>
 
 </body>
 <? } else { 
 echo " "; } 
+?>
+<script src="jquery-1.9.1.js"></script>
+<script>
+var mail;
+var nam;
+function showmail() { 
+$.ajaxSetup({ cache: false });
+$("#results").show();
+var nam = document.mailform.nam.value;
+var mail = document.mailform.mail.value;
+var url = "addmail.php?nam="+nam+"&&mail="+mail;
+$('#results').load(url);
+} 
+function close_pu() { 
+$(".subs_popup").hide();
+} </script>
