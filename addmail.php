@@ -1,5 +1,5 @@
 <?php
-include "../config.php";
+include "config.php";
 include "lib.php";
 
 $ema1 = $_REQUEST[mail];
