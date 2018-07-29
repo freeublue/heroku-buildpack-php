@@ -11,13 +11,13 @@ $sqlc = "SELECT * FROM cust WHERE cu_phone_mobile = '$usno'";
 $result = mysqli_query($conn, $sqlc);
 while($row = mysqli_fetch_assoc($result) ) { 
 $newcustid = $row[cu_id]; 
-echo "customer id $newcustid<br />"; } 
+echo " <br />"; } 
 
 $sqp = "SELECT * FROM cust WHERE cu_id = '$newcustid'";
 $res = mysqli_query($conn, $sqp);
 
 while($row = mysqli_fetch_assoc($res ) ) { 
-echo "$row[cu_id]<br />"; } 
+echo "<br />"; } 
 
 echo "<div id='ppfull'><center>";
           echo "<p class='lead'><div class='col-sm-4' style='background:black;color:white;font-size:24px;border:silver dotted 2px;text-align:center;float:left;width:33.3%;' >Order</div><div class='col-sm-4' style='background:gray;color:white;font-size:24px;border:silver dotted 2px;text-align:center;float:left;width:33.3%;'>Delivery details</div><div class='col-sm-4' style='background:black;color:white;font-size:24px;border:silver dotted 2px;text-align:center;float:left;width:33.3%;'>Payment</div></p><br /><hr><p>";
@@ -56,7 +56,7 @@ $ncfr = explode('|', $barray[$r]);
 $qu[]= $ncfr[0]; } 
 $quc = array_sum($qu);
 print_r($quc);
-echo "<br />quannt $quc<br />";
+
 if ($quc >= 6) { 
 
 
@@ -94,7 +94,7 @@ if (mysqli_query($conn, $sdq))
 else
   {
   echo "Error Inserting table: " . mysqli_error($conn); } } else { 
-  echo "no";
+  echo "The minimum order is 6kgs. Please go back and order at least 6kgs";
   } 
   
  } else { 
