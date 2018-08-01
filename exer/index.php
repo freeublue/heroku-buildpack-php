@@ -11,10 +11,10 @@ require "style.php";
 <a class='logo' href="index.php">Add User</a>
 <a class='logo' href="tables.php">Select JS</a>
 <a class='logo' href="selectphp.php">Select PHP</a>
-<a class='logo' href="byname.php">By name</a><br />
+<a class='logo' href="byname.php">By name</a>
 <a class='logo' href="byage.php">By Age</a><br />
-<a class='logo' href="bymobile.php">By mobile</a><br />
-<a class='logo' href="byemail.php">By email</a><br />
+<a class='logo' href="bymobile.php">By mobile</a>
+<a class='logo' href="byemail.php">By email</a><br /><hr>
 <script>
 function validateForm()
 {
