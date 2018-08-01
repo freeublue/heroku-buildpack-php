@@ -56,14 +56,14 @@ include "config.php";
 
               
               
-        $stm = "SELECT * FROM users";
+        $stm = "SELECT COUNT(*) FROM users";
        $res = mysqli_query($conn, $stm);
 if (mysqli_num_rows($res) > 0) {
             while($ro = mysqli_fetch_assoc($res)) { 
-            $idd[] = $ro[id];
+            $records = $ro['COUNT(*)'];
             
   }} 
-  $records = count($idd);
+  
  
   
   include "paginate.php";
