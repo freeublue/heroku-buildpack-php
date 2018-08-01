@@ -21,7 +21,8 @@ require "style.php";
 <body><a class='logo' href="index.php">Add User</a>
 <a class='logo' href="tables.php">SelectJS</a>
 <a class='logo' href="byname.php">SelectJS</a>
-<a class='logo' href="selectphp.php">SelectPHP</a><br />
+<a class='logo' href="selectphp.php">SelectPHP</a><br /><hr>
+<div class='container'><hr>
 
  
       
