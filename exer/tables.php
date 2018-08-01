@@ -61,7 +61,9 @@ require "style.php";
        $stmt = $pdo->query("SELECT * FROM users");
 while ($row = $stmt->fetch()) {
     
-
+$now = date("Y-m-d");
+$agx = date_diff(date_create($row["birthdate"]), date_create($now));
+$ag = $agx->format('%y');
 
 
             echo "<tr>";
@@ -69,7 +71,7 @@ while ($row = $stmt->fetch()) {
                echo "<td>" . $row["name"]. ' ' . $row["surname"] . "</td>";
                
                echo "<td>" . $row["mobile"] . "</td>"; 
-               echo "<td>" . $row["birthdate"] . "</td><td>ggg" . $ageuser . "</td><td>" . $row["ins_time"] . "</td><td>" . $row["email"] . "</td>"; 
+               echo "<td>" . $row["birthdate"] . "</td><td>" . $ag . "</td><td>" . $row["ins_time"] . "</td><td>" . $row["email"] . "</td>"; 
                echo "</tr>";
                
 
