@@ -8,13 +8,13 @@ require "style.php";
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 </head>
 <body>
-<a class='logo' href="index.php">AddUser</a><br />
-<a class='logo' href="tables.php">SelectJS</a><br />
-<a class='logo' href="selectphp.php">SelectPHP</a><br />
-<a class='logo' href="byname.php">Byname</a><br />
-<a class='logo' href="byage.php">ByAge</a><br />
-<a class='logo' href="bymobile.php">Bymobile</a><br />
-<a class='logo' href="byemail.php">Byemail</a><br /><hr>
+<a class='logox' href="index.php">AddUser</a><br />
+<a class='logox' href="tables.php">SelectJS</a><br />
+<a class='logox' href="selectphp.php">SelectPHP</a><br />
+<a class='logox' href="byname.php">Byname</a><br />
+<a class='logox' href="byage.php">ByAge</a><br />
+<a class='logox' href="bymobile.php">Bymobile</a><br />
+<a class='logox' href="byemail.php">Byemail</a><br /><hr>
 <script>
 function validateForm()
 {
