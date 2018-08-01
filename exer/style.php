@@ -19,6 +19,15 @@ padding:10px;
 background:#5385c1;
 border-radius:15%;
 color:white;}
+.logox{height:30px;
+clear:left;
+
+margin:10px;
+width:100px;
+padding:12px;
+background:#5385c1;
+border-radius:15%;
+color:white;}
 .buttonsmall{
 height:30px;
 width:250px;

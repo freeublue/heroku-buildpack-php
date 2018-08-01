@@ -1,20 +1,6 @@
 <?
 require "style.php";
 ?>
-
-<!DOCTYPE HTML><html><head>
-<title>User Project</title>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-</head>
-<body>
-<a class='logox' href="index.php">AddUser</a><br />
-<a class='logox' href="tables.php">SelectJS</a><br />
-<a class='logox' href="selectphp.php">SelectPHP</a><br />
-<a class='logox' href="byname.php">Byname</a><br />
-<a class='logox' href="byage.php">ByAge</a><br />
-<a class='logox' href="bymobile.php">Bymobile</a><br />
-<a class='logox' href="byemail.php">Byemail</a><br /><hr>
 <script>
 function validateForm()
 {
@@ -56,59 +42,25 @@ return false;
 } 
 
 } 
-</script><style>
+</script>
 
-body, input, select, textarea {
-		color: #9a9a9a;
-		font-family: "Raleway", Arial, Helvetica, sans-serif;
-		font-size: 13pt;
-		font-weight: 300;
-		line-height: 1.65;} 
-input, textarea { 
-    padding: 9px; 
-    border: solid 1px #E5E5E5; 
-    outline: 0; 
-    font: normal 13px/100% Verdana, Tahoma, sans-serif; 
-    width: 200px; 
-    background: #FFFFFF left top repeat-x; 
-    background: -webkit-gradient(linear, left top, left 25, from(#FFFFFF), color-stop(4%, #EEEEEE), to(#FFFFFF)); 
-    background: -moz-linear-gradient(top, #FFFFFF, #EEEEEE 1px, #FFFFFF 25px); 
-    box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px; 
-    -moz-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px; 
-    -webkit-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px; 
-    } 
-   
-textarea { 
-    width: 400px; 
-    max-width: 400px; 
-    height: 150px; 
-    line-height: 150%; 
-    } 
-   
-input:hover, textarea:hover, 
-input:focus, textarea:focus { 
-    border-color: #C9C9C9; 
-    -webkit-box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 8px; 
-    } 
-   
-label { 
-    margin-left: 10px; 
-    color: #999999; 
-    } 
+<!DOCTYPE HTML><html><head>
+<title>User Project</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<?
+require "style.php";
+?>
+</head>
+<body>
+<a class='logox' href="index.php">AddUser</a><br />
+<a class='logox' href="tables.php">SelectJS</a><br />
+<a class='logox' href="selectphp.php">SelectPHP</a><br />
+<a class='logox' href="byname.php">Byname</a><br />
+<a class='logox' href="byage.php">ByAge</a><br />
+<a class='logox' href="bymobile.php">Bymobile</a><br />
+<a class='logox' href="byemail.php">Byemail</a><br /><hr>
 
-form{background:blue;
-padding:30px;
-width:400px;
-border:gray dotted 1px;
-border-radius:15%;
-font-size:20px;
-background: -webkit-gradient(linear, left top, left 25, from(#FFFFFF), color-stop(4%, #EEEEEE), to(#FFFFFF)); 
-background: -moz-linear-gradient(top, #FFFFFF, #EEEEEE 1px, #FFFFFF 25px); 
-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px; 
-    -moz-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px; 
-    -webkit-box-shadow: rgba(0,0,0, 0.1) 0px 0px 8px; 
-}
-</style>
 
 <?php
 include 'lib.php';
