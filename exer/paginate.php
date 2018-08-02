@@ -16,6 +16,8 @@ foreach( $pg as $p) {
 $rec = $p - 1;
 $num = $rec*10;
 
+
+
 echo "<a href='" . $_SERVER['PHP_SELF'] . "?nu=" . ($num) . "'>$p </a>";
 }
 echo "<br />";
@@ -23,10 +25,11 @@ if(($nu+10) >= $rescount && $pages != 0) {
 
 echo "<a href='" . $_SERVER['PHP_SELF'] . "?nu=" . ($nu-10) .  "'>Previous Page </a><br />"; } 
 elseif ($nu+10 < $rescount && $nu > 1) { 
-
+$pgd = ($nu/10)+1;
+echo "you are on page $pgd <br />";
 echo "<a href='" . $_SERVER['PHP_SELF'] . "?nu=" . ($nu+10) . "'>Next Page </a><br />";
 echo "<a href='" . $_SERVER['PHP_SELF'] . "?nu=" . ($nu-10) .  "'>Previous Page </a><br />"; } elseif($nu === 0) { 
-
+echo "page 1<br />";
 echo "<a href='" . $_SERVER['PHP_SELF'] . "?nu=" . ($nu+10) .  "'>Next Page </a><br />";
 } 
 
