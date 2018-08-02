@@ -20,7 +20,7 @@ $stm = "SELECT * FROM users WHERE surname LIKE '%$searchTerm%' LIMIT $nu, 10";
 $stmx = "SELECT COUNT(*) FROM users WHERE surname LIKE '%$searchTerm%'"; } 
 elseif($type === 'BirthDate') { 
 $stm = "SELECT * FROM users WHERE birthdate LIKE '%$searchTerm%' LIMIT $nu, 10";
-$stmx = "SELECT COUNT(*) FROM users WHERE birthdat LIKE '%$searchTerm%'"; }
+$stmx = "SELECT COUNT(*) FROM users WHERE birthdate LIKE '%$searchTerm%'"; }
 elseif($type === 'Mobile') { 
 $searchTerm = 0;
 $stm = "SELECT * FROM users WHERE mobile LIKE '$searchTerm%' LIMIT $nu, 10";
