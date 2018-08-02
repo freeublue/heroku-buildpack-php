@@ -48,7 +48,7 @@
       <div class="jumbotron"><img src='banner10.jpg' width='500px'/>
         <h1 class="display-3">User Input</h1>
         <p class="lead">Search Users.</p>
-        <p><a class="btn btn-lg btn-success" href="search.php" role="button">Search Users</a></p>
+        <p><a class="btn btn-lg btn-success" href="search.php" role="button">Click To Search Users</a></p>
       </div>
 
       <div class="row marketing">
