@@ -9,7 +9,7 @@ $stm = "SELECT * FROM users WHERE name LIKE '%$searchTerm%'"; }
 elseif($type === 'Surname') { 
 $searchTerm = 'Her';
 $stm = "SELECT * FROM users WHERE surname LIKE '%$searchTerm%'"; } 
-elseif($type === 'birtDate') { 
+elseif($type === 'BirthDate') { 
 $stm = "SELECT * FROM users WHERE birthdate LIKE '%$searchTerm%'"; }
 elseif($type === 'Mobile') { 
 $stm = "SELECT * FROM users WHERE mobile LIKE '%$searchTerm%'"; }
