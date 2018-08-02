@@ -18,17 +18,17 @@ $num = $rec*10;
 echo "<a href='searchb.php?nu=" . ($num) . "&&type=" . $type . "&&searchTerm=" . $searchTerm . "'>$p </a>";
 }
 echo "<br />";
-if($pages == 1) { 
+if($p == 1) { 
 echo "There is only one page<br />";
 }
-if(($nu+10) >= $rescount && $pages != 0) { 
+if(($nu+10) >= $rescount && $p != 1) { 
 
 echo "<a href='searchb.php?nu=" . ($nu-10) . "&&type=" . $type . "&&searchTerm=" . $searchTerm .  "'>Previous Page </a><br />"; } 
 elseif ($nu+10 < $rescount && $nu > 1) { 
 $pgd = ($nu/10)+1;
 echo "you are on page $pgd <br />";
 echo "<a href='searchb.php?nu=" . ($nu+10) . "&&type=" . $type . "&&searchTerm=" . $searchTerm . "'>Next Page </a><br />";
-echo "<a href='searchb.php?nu=" . ($nu-10) .  "&&type=" . $type . "&&searchTerm=" . $searchTerm . "'>Previous Page </a><br />"; } elseif($nu === 0) { 
+echo "<a href='searchb.php?nu=" . ($nu-10) .  "&&type=" . $type . "&&searchTerm=" . $searchTerm . "'>Previous Page </a><br />"; } elseif($nu === 0 && $rec != 0 ) { 
 echo "Page 1<br />";
 echo "<a href='searchb.php?nu=" . ($nu+10) .  "&&type=" . $type . "&&searchTerm=" . $searchTerm . "'>Next Page </a><br />";
 } 
