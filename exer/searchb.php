@@ -4,7 +4,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>Search Tables</title></head><body>
+  <title>Search Tables</title></head><body><h4><a href='search.php'>Search Another</a></h4>
   <?php
 include "config.php";
 $nu = $_GET[nu];

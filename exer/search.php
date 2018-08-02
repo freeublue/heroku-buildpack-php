@@ -33,12 +33,12 @@ echo "<div onclick=sh(this.id); id='Email' class='btn btn-xs btn-primary'>Email<
 function sh(nnc) { 
 
 var searchf = document.getElementById("searchTerm").value;
-var type = nnc;
+var typ = nnc;
 
 $.ajaxSetup({ cache: false }); 
 
 
-var url = "searchresult.php?searchTerm=" + searchf + "&&type=" + type;
+var url = "searchresult.php?searchTerm=" + searchf + "&&type=" + typ;
 $('#divToRefresh').load(url);
 }
 </script>
