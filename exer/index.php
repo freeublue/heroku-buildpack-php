@@ -53,6 +53,8 @@ require "style.php";
 ?>
 </head>
 <body>
+<h4>Complete Profile form on the bottom of this page</h4>
+<a class='logox' href="search.php">Search</a><br />
 <a class='logox' href="index.php">AddUser</a><br />
 <a class='logox' href="tables.php">SelectJS</a><br />
 <a class='logox' href="selectphp.php">SelectPHP</a><br />
