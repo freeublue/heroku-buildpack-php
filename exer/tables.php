@@ -1,6 +1,3 @@
-<?
-require "style.php";
-?>
 <!DOCTYPE html>
 <html lang="en"><head><link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet"><link href="bootstrap.min.css" rel="stylesheet"><link href="font-awesome.min.css" rel="stylesheet" type="text/css"><script src="https://code.jquery.com/jquery-3.3.1.js"></script><script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script><meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,13 +12,35 @@ require "style.php";
   <!-- Page level plugin CSS-->
   <link href="dataTables.bootstrap4.css" rel="stylesheet">
   <!-- Custom styles for this template-->
-  <link href="sb-admin.css" rel="stylesheet">
+  <link href="narrow.css" rel="stylesheet">
 </head>
 
-<body><a class='logo' href="index.php">Add User</a>
-<a class='logo' href="tables.php">SelectJS</a>
-<a class='logo' href="byname.php">SelectJS</a>
-<a class='logo' href="selectphp.php">SelectPHP</a><br /><hr>
+<div class="container">
+      <div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills float-right">
+            <li class="nav-item">
+              <a class="nav-link active" href="index.php">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="tables.php">Jquery</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="selectphp.php">PHP</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="byname.php">By Name</a>
+            </li> <li class="nav-item">
+              <a class="nav-link" href="byemail.php">By Email</a>
+            </li><li class="nav-item">
+              <a class="nav-link" href="bymobile.php">By Mobile</a>
+            </li><li class="nav-item">
+              <a class="nav-link" href="byage.php">By Age</a>
+            </li>
+          </ul>
+        </nav>
+        <h3 class="text-muted">User Input and Display</h3>
+      </div>
 <div class='container'><hr>
 
  

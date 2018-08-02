@@ -9,7 +9,33 @@ $input_form = "<div class='form-group row'><div class='". $size . "'><div class=
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>Search Tables</title></head><body><h4>Enter a Search Term and Which Click Type</h4><p>Eg:083 then click Mobile</p><form id='xx' name='xx'>
+  <title>Search Tables</title></head><body>
+    <div class="container">
+      <div class="header clearfix">
+       <nav>
+          <ul class="nav nav-pills float-right">
+            <li class="nav-item">
+              <a class="nav-link active" href="index.php">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="tables.php">Jquery</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="selectphp.php">PHP</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="byname.php">By Name</a>
+            </li> <li class="nav-item">
+              <a class="nav-link" href="byemail.php">By Email</a>
+            </li><li class="nav-item">
+              <a class="nav-link" href="bymobile.php">By Mobile</a>
+            </li><li class="nav-item">
+              <a class="nav-link" href="byage.php">By Age</a>
+            </li>
+          </ul>
+        </nav>
+        <h3 class="text-muted">Users</h3>
+      </div><h4>Enter a Search Term and Which Click Type</h4><p>Eg:083 then click Mobile</p><form id='xx' name='xx'>
  <?
  $idf = "searchTerm";
  $idt = "search";
