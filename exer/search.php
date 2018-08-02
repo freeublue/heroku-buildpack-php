@@ -9,7 +9,7 @@ $input_form = "<div class='form-group row'><div class='". $size . "'><div class=
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-  <title>Search Tables</title></head><body><form id='xx' name='xx'>
+  <title>Search Tables</title></head><body><h4>Enter a Search Term and Which Click Type</h4><form id='xx' name='xx'>
  <?
  $idf = "searchTerm";
  $idt = "search";
