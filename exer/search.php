@@ -35,7 +35,7 @@ $input_form = "<div class='form-group row'><div class='". $size . "'><div class=
           </ul>
         </nav>
         <h3 class="text-muted">Users</h3>
-      </div><h4>Enter a Search Term and Which Click Type</h4><p>Eg:083 then click Mobile</p><form id='xx' name='xx'>
+      </div><h4>Enter a search term and click one of the blue buttons to initiate search filter.</h4><p>Eg:083 then click Mobile</p><form id='xx' name='xx'>
  <?
  $idf = "searchTerm";
  $idt = "search";
