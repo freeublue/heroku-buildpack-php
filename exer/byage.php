@@ -69,6 +69,7 @@
               </tfoot>
               <tbody>
               <?php
+              error_reporting(0);
               
 
 include "config.php";
@@ -85,7 +86,10 @@ if (mysqli_num_rows($res) > 0) {
  
  
   
-  include "paginate.php";
+    $url = "byage.php";
+ require "paging.php";
+ 
+  include "pagx.php";
   
   
        $stmt = "SELECT * FROM users ORDER BY birthdate DESC LIMIT $nu, 10";

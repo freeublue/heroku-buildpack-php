@@ -1,4 +1,5 @@
 <?php
+error_reporting(0);
 include "config.php";
 $nu =0;
 $searchTerm = $_REQUEST["searchTerm"];
@@ -49,6 +50,7 @@ echo "We dont have that type";
               <tbody>
               <?php
               
+              
 
 include "config.php";
 
@@ -61,7 +63,7 @@ if (mysqli_num_rows($res) > 0) {
             $records = $ro["COUNT(*)"];
             
   }} 
-
+$url = "searchb.php";
  include "paging.php";
   
   include "pagx.php";

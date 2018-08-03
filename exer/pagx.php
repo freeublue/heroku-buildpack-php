@@ -1,9 +1,9 @@
 
 <?php
-$paging = 10;
+error_reporting(0);
 $rescount = $records;
-$recordsperpage = 10;
-$pages = ceil($rescount/10);
+$recordsperpage = 20;
+$pages = ceil($rescount/$recordsperpage);
 
 if(!($_GET["nu"])) {  
  $nu = 0;} else{
@@ -15,7 +15,7 @@ echo "<div class='ne'>";
 
 foreach( $pg as $p) { 
 $rec = $p - 1;
-$num = $rec*10;
+$num = $rec*$recordsperpage;
 
 
 
@@ -26,19 +26,19 @@ echo "<div class='pr'>There is only one page</div>";
 }
 
 
-if(($nu+10) > $rescount && $p != 1 && $rec != -1) { 
-$calc = $nu+10;
+if(($nu+$recordsperpage) >= $rescount && $p != 1 && $rec != -1) { 
+$calc = $nu+$recordsperpage;
 
-$pgd = ceil($nu/10)+1;
-previousonly($pages, $pgd, 10, "searchb.php", $type, $searchTerm);
-echo "<div class='pr'><a href='searchb.php?nu=" . ($nu-10) . "&&type=" . $type . "&&searchTerm=" . $searchTerm . "'>PREVIOUS</a><br/></div>";
+$pgd = ceil($nu/$recordsperpage)+1;
+previousonly($pages, $pgd, $recordsperpage, $url, $type, $searchTerm);
+echo "<div class='pr'><a href='" . $url . "?nu=" . ($nu-$recordsperpage) . "&&type=" . $type . "&&searchTerm=" . $searchTerm . "'>PREVIOUS</a><br/></div>";
  } 
-elseif ($nu+10 < $rescount && $nu > 1) { 
+elseif ($nu+$recordsperpage < $rescount && $nu > 1) { 
 
-$pgd = ceil($nu/10)+1;
-nextandprevious($pages, $pgd, 10, "searchb.php", $type, $searchTerm);
-echo "<div class='pr'><a href='searchb.php?nu=" . ($nu+10) . "&&type=" . $type . "&&searchTerm=" . $searchTerm . "'>NEXT</a><br /></div>";
-echo "<div class='pr'><a href='searchb.php?nu=" . ($nu-10) . "&&type=" . $type . "&&searchTerm=" . $searchTerm . "'>PREVIOUS</a><br/></div>";
+$pgd = ceil($nu/$recordsperpage)+1;
+nextandprevious($pages, $pgd, $recordsperpage, $url, $type, $searchTerm);
+echo "<div class='pr'><a href='" . $url . "?nu=" . ($nu+$recordsperpage) . "&&type=" . $type . "&&searchTerm=" . $searchTerm . "'>NEXT</a><br /></div>";
+echo "<div class='pr'><a href='" . $url . "?nu=" . ($nu-$recordsperpage) . "&&type=" . $type . "&&searchTerm=" . $searchTerm . "'>PREVIOUS</a><br/></div>";
 
 
 } 
@@ -47,9 +47,10 @@ echo "<div class='pr'><a href='searchb.php?nu=" . ($nu-10) . "&&type=" . $type .
 
 
 elseif($nu === 0 && $rec > 1 ) { 
-$pgd = ceil($nu/10)+1;
-nextonly($pages, $pgd, 10, "searchb.php", $type, $searchTerm);
-echo "<div class='pr'><a href='searchb.php?nu=" . ($nu+10) . "&&type=" . $type . "&&searchTerm=" . $searchTerm . "'>NEXT</a></div>";
+
+$pgd = ceil($nu/$recordsperpage)+1;
+nextonly($pages, $pgd, $recordsperpage, $url, $type, $searchTerm);
+echo "<div class='pr'><a href='" . $url . "?nu=" . ($nu+$recordsperpage) . "&&type=" . $type . "&&searchTerm=" . $searchTerm . "'>NEXT</a></div>";
 
 
 

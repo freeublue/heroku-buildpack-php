@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en"><head><link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet"><link href="bootstrap.min.css" rel="stylesheet"><link href="font-awesome.min.css" rel="stylesheet" type="text/css"><script src="https://code.jquery.com/jquery-3.3.1.js"></script><script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script><meta charset="utf-8">
+<html lang="en"><head><link href="bootstrap.min.css" rel="stylesheet"><link href="font-awesome.min.css" rel="stylesheet" type="text/css"><meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
@@ -71,6 +71,7 @@
               
 
 include "config.php";
+error_reporting(0);
 
               
               
@@ -84,7 +85,10 @@ if (mysqli_num_rows($res) > 0) {
 
  
   
-  include "paginate.php";
+  $url = "selectphp.php";
+ require "paging.php";
+ 
+  include "pagx.php";
   
   
        $stmt = "SELECT * FROM users ORDER BY id DESC LIMIT $nu, 10";
