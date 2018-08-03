@@ -26,7 +26,9 @@ echo "<div class='pr'>There is only one page</div>";
 }
 
 
-if(($nu+10) >= $rescount && $p != 1) { 
+if(($nu+10) > $rescount && $p != 1 && $rec != -1) { 
+$calc = $nu+10;
+
 $pgd = ceil($nu/10)+1;
 previousonly($pages, $pgd, 10, "searchb.php", $type, $searchTerm);
 echo "<div class='pr'><a href='searchb.php?nu=" . ($nu-10) . "&&type=" . $type . "&&searchTerm=" . $searchTerm . "'>PREVIOUS</a><br/></div>";
@@ -44,7 +46,7 @@ echo "<div class='pr'><a href='searchb.php?nu=" . ($nu-10) . "&&type=" . $type .
 
 
 
-elseif($nu === 0 && $rec != 0 ) { 
+elseif($nu === 0 && $rec > 1 ) { 
 $pgd = ceil($nu/10)+1;
 nextonly($pages, $pgd, 10, "searchb.php", $type, $searchTerm);
 echo "<div class='pr'><a href='searchb.php?nu=" . ($nu+10) . "&&type=" . $type . "&&searchTerm=" . $searchTerm . "'>NEXT</a></div>";
