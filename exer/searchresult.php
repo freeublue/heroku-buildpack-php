@@ -3,7 +3,7 @@ include "config.php";
 $nu =0;
 $searchTerm = $_REQUEST["searchTerm"];
 $type = $_REQUEST["type"];
-echo "type $type $searchTerm";
+
 if($type === 'Name') { 
 $stm = "SELECT * FROM users WHERE name LIKE '%$searchTerm%' LIMIT $nu, 10"; 
 $stmx = "SELECT COUNT(*) FROM users WHERE name LIKE '%$searchTerm%'"; }
@@ -35,7 +35,7 @@ echo "We dont have that type";
                   <th>Email</th>
                 </tr>
               </thead>
-              <tfoot>
+                            <tfoot>
                 <tr>
                   <th>Name</th>
                   <th>Mobile</th>
@@ -45,6 +45,7 @@ echo "We dont have that type";
                   <th>Email</th>
                 </tr>
               </tfoot>
+             
               <tbody>
               <?php
               
@@ -61,7 +62,7 @@ if (mysqli_num_rows($res) > 0) {
             
   }} 
 
- 
+ include "paging.php";
   
   include "pagx.php";
   
@@ -87,14 +88,28 @@ $ag = $agx->format('%y');
                
 
                } 
+               
+
                } else { echo "no result"; } 
                ?>
-              
-             
-              </tbody>
-            </table>
-          </div>
-        </div> 
+               </table></div><?
+               include "pagx.php";
+                           
+                           ?></tbody></table></div></div> 
+                <div class="footer small text-muted">Updated yesterday at 11:59 PM</div>
+      </div>
+    </div>
+    <!-- /.container-fluid-->
+    <!-- /.content-wrapper-->
+    <footer class="sticky-footer">
+      <div class="container">
+        <div class="text-center">
+          <small>Copyright © Project 2018</small>
+        </div>
+      </div>
+    </footer>
+
+        </body>
 
 
             
