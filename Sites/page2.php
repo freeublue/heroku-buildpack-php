@@ -31,5 +31,5 @@
       $(function () {
         Holder.addTheme("thumb", { background: "#55595c", foreground: "#eceeef", text: "Thumbnail" });
       });
-    </script><script src="../../dist/js/bootstrap.min.js"></script><script src="ie10-viewport-bug-workaround.js"></script></body></html>
+    </script><script src="bootstrap.min.js"></script><script src="ie10-viewport-bug-workaround.js"></script></body></html>
 
