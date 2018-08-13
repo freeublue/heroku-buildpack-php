@@ -20,12 +20,12 @@
           </ul>
         </nav>
          <?
-      include "conf.php";
+      include "config.php";
       $id = $_REQUEST["id"];
   
-         $stmt = $db->query("SELECT * FROM album WHERE al_id = '$id'");
-       
-            while($row = $stmt->fetchArray(SQLITE3_ASSOC)) { 
+         $stmt = "SELECT * FROM album WHERE id = '$id'";
+       $res = mysqli_query($conn, $stmt);
+            while($row = mysqli_fetch_assoc($res)) { 
         echo "<h3 class='text-muted'>$row[al_title]</h3></div><div class='container'>";
      
       echo "<img src='$row[al_img]' class='img-fluid' alt='Responsive image'><p>$row[al_descp]</p>"; } 
