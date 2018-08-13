@@ -60,13 +60,13 @@
     <div class="album text-muted">
       <div class="container">
      <?
-        include "conf.php";
+        include "config.php";
 
               
               
-        $stm = $db->query("SELECT COUNT(*) FROM album");
-       
-            while($ro = $stm->fetchArray(SQLITE3_ASSOC)) { 
+        $stm = "SELECT COUNT(*) FROM album";
+       $res = mysqli_query($conn, $stm);
+            while($ro = mysqli_fetch_assoc($res)) { 
             $records = $ro['COUNT(*)'];
             
   }
@@ -82,9 +82,9 @@
    
   
   
-         $stmt = $db->query("SELECT * FROM album ORDER BY al_id DESC LIMIT $nu, $recordsperpage");
-       
-            while($row = $stmt->fetchArray(SQLITE3_ASSOC)) { 
+         $stmt = "SELECT * FROM album ORDER BY id DESC LIMIT $nu, $recordsperpage";
+       $result = mysqli_query($conn, $stmt);
+            while($row = mysqli_fetch_assoc($result)) { 
             
           echo "<div class='card'><p class='lead'>$row[al_title]</p>
             <a href='viewimage.php?id=$row[al_id]'><img src='$row[al_img]' height='219px' width='216px' data-src='holder.js/100px280/thumb' alt='pers' /></a><p class='card-text'>$row[al_descp]</p>
