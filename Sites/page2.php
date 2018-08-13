@@ -27,7 +27,7 @@
             while($row = mysqli_fetch_assoc($result)) { 
             
           echo "<div class='card'><p class='lead'><a href='viewimage.php?id=$row[id]'>$row[al_title]</a></p><a href='viewimage.php?id=$row[id]'><img src='$row[al_img]' height='219px' width='216px' /></a><p class='card-text'>$row[al_descp]</p></div>"; } 
-          ?></div></div><script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script><script>window.jQuery || document.write('<script src="jquery.min.js"><\/script>')</script><script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script><script src="holder.min.js"></script><script>
+          ?></div></div><script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script><script>window.jQuery || document.write('<script src="jquery-1.9.1.js"><\/script>')</script><script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script><script src="holder.min.js"></script><script>
       $(function () {
         Holder.addTheme("thumb", { background: "#55595c", foreground: "#eceeef", text: "Thumbnail" });
       });
