@@ -19,7 +19,7 @@
 	]
 },
 
-
+{ 
 
     "require": 
 { 
@@ -29,4 +29,4 @@
     "guzzlehttp/guzzle": "4.0.2", 
     "way/generators": "2.6", 
     "fzaninotto/faker": "v1.3.0" 
-} 
+} } 
