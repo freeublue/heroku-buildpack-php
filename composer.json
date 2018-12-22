@@ -22,10 +22,5 @@
 
     "require": 
 { 
-​   "ext-gd": "*", 
-    "laravel/framework": "4.1.28", 
-    "doctrine/dbal": "2.4.2", 
-    "guzzlehttp/guzzle": "4.0.2", 
-    "way/generators": "2.6", 
-    "fzaninotto/faker": "v1.3.0" 
-} 
+​   "ext-gd": "*"
+} } 
