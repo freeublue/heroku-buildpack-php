@@ -1,9 +1,8 @@
+
 <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
-<script src='../jquery-1.11.1.min.js'></script>
+
 <style>
 @import "https://fonts.googleapis.com/css?family=Raleway:100,300,600";
-
-
 body, input, select, textarea {
 		color: #9a9a9a;
 		font-family: "Raleway", Arial, Helvetica, sans-serif;
@@ -13,7 +12,6 @@ body, input, select, textarea {
 		
 #su{display:none;}
 #rr{display:block;}
-
 th{
 padding:5px;
 font-family: Arial Rounded MT Bold,Helvetica Rounded,Arial,sans-serif; 
@@ -34,7 +32,6 @@ border-bottom:1px dotted #5385c1;
 border-left: 1px solid #5385c1;
 padding:4px;
 font-family: Verdana,Geneva,sans-serif; 
-
 }
 table{border-radius:15%;
 margin-bottom:25px;
@@ -42,7 +39,6 @@ width:400px;
 border-bottom: 2px solid #5385c1;}
 #nav{width:100%;
 height:50px;
-
 background:white;}
 a{text-decoration:none;}
 .logo{height:30px;
@@ -113,6 +109,8 @@ font-family: "Raleway", Arial, Helvetica, sans-serif;}</style>
 
 </center><center><div class='image12'><img src='laundry.jpg' /></div></center>
 </body>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js" type="text/javascript"></script>
 <script>
 var x = document.getElementById("demo");
 function getLocation() {
@@ -138,8 +136,8 @@ $.ajax({
   jsonp: 'jsoncallback',
   data: {
     searchtext: document.pform.ginput.value,
-    app_id: 'I9Y4iDApiDnRYg4Bcfyx',
-    app_code: '8DVGvwPLV6UgKJWVU5-p3A',
+    app_id: 'aOZ0gFA9M1Q3OwAeU90E',
+    app_code: 'HV1Z1K2sggmrpFEXUg9Wtg',
     gen: '8'
   },
   success: function (data) {
@@ -147,7 +145,6 @@ $.ajax({
     
     var str = JSON.stringify(data);
     
-
     var st = str.indexOf("DisplayPosition")+19;
     var ed = str.indexOf("NavigationPosition")-3;
     var newd = str.substring(st,ed);
@@ -159,12 +156,7 @@ $.ajax({
     lnx = vf[1].substring(12,vf[1].length);
     document.getElementById("su").style.display = "block";
         document.getElementById("rr").style.display = "none";
-
-
-
-
     
   }
 }); } 
 </script>
-
