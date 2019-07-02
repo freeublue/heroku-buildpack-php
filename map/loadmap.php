@@ -1,4 +1,3 @@
-
 <?php
 $lat = trim($_POST['lat']);
 $lon = trim($_POST['lng']);
@@ -95,15 +94,15 @@ function addCircleToMap(map){
 
 // initialize communication with the platform
 var platform = new H.service.Platform({
-  app_id: 'I9Y4iDApiDnRYg4Bcfyx',
-  app_code: '8DVGvwPLV6UgKJWVU5-p3A',
+      app_id: 'aOZ0gFA9M1Q3OwAeU90E',
+    app_code: 'HV1Z1K2sggmrpFEXUg9Wtg',
   useCIT: true,
   useHTTPS: true
 });
 var pixelRatio = window.devicePixelRatio || 1;
 var defaultLayers = platform.createDefaultLayers({
-  tileSize: pixelRatio === 1 ? 256 : 512,
-  ppi: pixelRatio === 1 ? undefined : 320
+  tileSize: pixelRatio === 2 ? 256 : 512,
+  ppi: pixelRatio === 2 ? undefined : 320
 });
 
 // initialize a map - this map is centered over Europe
